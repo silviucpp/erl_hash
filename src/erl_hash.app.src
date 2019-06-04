@@ -1,0 +1,25 @@
+{application, erl_hash, [
+    {description, "Erlang collection of hash algorithms"},
+    {licenses, ["MIT"]},
+    {links,[{"Github","https://github.com/silviucpp/erl_hash"}]},
+    {vsn, "1.0.0"},
+    {registered, []},
+    {mod, {erl_hash_app, []}},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {env,[]},
+    {modules, []},
+    {files, [
+        "LICENSE*",
+        "*.MD",
+        "rebar.config",
+        "rebar.lock",
+        "src/*.erl",
+        "c_src/*.h",
+        "c_src/*.cc",
+        "c_src/Makefile",
+        "c_src/nif.mk"
+    ]}
+]}.
