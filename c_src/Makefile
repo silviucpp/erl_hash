@@ -13,5 +13,5 @@ ifeq ($(UNAME_SYS), darwin)
 	            -Wl,-U,_enif_make_uint
 endif
 
-CXXFLAGS+=  -g -Wextra -Werror -Wno-missing-field-initializers -fno-rtti -fno-exceptions
+CXXFLAGS+=  -g -Wextra -Werror -Wno-missing-field-initializers -fno-rtti -fno-exceptions -Wno-implicit-fallthrough
 LDFLAGS +=  -lstdc++
