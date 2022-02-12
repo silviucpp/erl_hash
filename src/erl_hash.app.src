@@ -2,7 +2,7 @@
     {description, "Erlang collection of hash algorithms"},
     {licenses, ["MIT"]},
     {links,[{"Github","https://github.com/silviucpp/erl_hash"}]},
-    {vsn, "1.0.3"},
+    {vsn, "1.0.4"},
     {registered, []},
     {mod, {erl_hash_app, []}},
     {applications, [
