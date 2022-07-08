@@ -7,10 +7,12 @@ ifeq ($(UNAME_SYS), darwin)
 	LDFLAGS +=  -Wl,-U,_enif_inspect_binary \
 	            -Wl,-U,_enif_inspect_iolist_as_binary \
 	            -Wl,-U,_enif_is_binary \
+	            -Wl,-U,_enif_get_uint \
 	            -Wl,-U,_enif_make_atom \
 	            -Wl,-U,_enif_make_existing_atom \
 	            -Wl,-U,_enif_make_tuple \
-	            -Wl,-U,_enif_make_uint
+	            -Wl,-U,_enif_make_uint \
+                -Wl,-U,_enif_make_int
 endif
 
 CXXFLAGS+=  -g -Wextra -Werror -Wno-missing-field-initializers -fno-rtti -fno-exceptions -Wno-implicit-fallthrough

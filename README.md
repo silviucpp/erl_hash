@@ -9,6 +9,7 @@ Collection of different hash algorithms not available into the standard Erlang l
 
 Right now supporting:
 
+- murmur3_x64_128
 - murmur2
 - fnv1_32
 - fnv1a_32

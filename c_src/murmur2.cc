@@ -1,5 +1,5 @@
 
-#include "murmur.h"
+#include "murmur2.h"
 
 /*
  * Same implementation as in: https://github.com/Netflix/dynomite/blob/dev/src/hashkit/dyn_murmur.c

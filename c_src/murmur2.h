@@ -1,5 +1,5 @@
-#ifndef C_SRC_MURMUR_H_
-#define C_SRC_MURMUR_H_
+#ifndef C_SRC_MURMUR2_H_
+#define C_SRC_MURMUR2_H_
 
 #include <stdlib.h>
 #include <stdint.h>

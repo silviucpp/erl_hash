@@ -1,7 +1,8 @@
 #include "erl_hash_nif.h"
 #include "nif_utils.h"
 #include "macros.h"
-#include "murmur.h"
+#include "murmur2.h"
+#include "murmur3.h"
 #include "fnv.h"
 
 const char kAtomError[] = "error";
@@ -33,6 +34,22 @@ int on_nif_upgrade(ErlNifEnv* env, void** priv, void** old_priv, ERL_NIF_TERM in
     UNUSED(info);
     *priv = NULL;
     return 0;
+}
+
+ERL_NIF_TERM hash_murmur3_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+{
+    UNUSED(argc);
+
+    ErlNifBinary key;
+    uint32_t seed;
+
+    if (!get_binary(env, argv[0], &key))
+        return make_badarg(env);
+
+    if (!enif_get_uint(env, argv[1], &seed))
+        return make_badarg(env);
+
+    return enif_make_int(env, hash_murmur3_x64_128(key.data, key.size, seed));
 }
 
 ERL_NIF_TERM hash_murmur2_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
@@ -97,6 +114,7 @@ ERL_NIF_TERM hash_fnv1a_32_nif(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv
 
 static ErlNifFunc nif_funcs[] =
 {
+    {"murmur3_x64_128", 2, hash_murmur3_nif},
     {"murmur2", 1, hash_murmur2_nif},
     {"fnv1_64", 1, hash_fnv1_64_nif},
     {"fnv1a_64", 1, hash_fnv1a_64_nif},

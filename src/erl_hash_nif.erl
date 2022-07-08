@@ -5,6 +5,7 @@
 -on_load(load_nif/0).
 
 -export([
+    murmur3_x64_128/2,
     murmur2/1,
     fnv1_32/1,
     fnv1a_32/1,
@@ -30,6 +31,9 @@ get_priv_path(File) ->
 
 not_loaded(Line) ->
     erlang:nif_error({not_loaded, [{module, ?MODULE}, {line, Line}]}).
+
+murmur3_x64_128(_Key, _Seed) ->
+    ?NOT_LOADED.
 
 murmur2(_Key) ->
     ?NOT_LOADED.
